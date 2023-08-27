@@ -1,13 +1,17 @@
 package com.hekeki.kotlinspringbootskeleton.webapp.controller
 
-import com.hekeki.kotlinspringbootskeleton.api.v1.ServerInfoIF
+import org.springframework.http.MediaType
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import java.time.LocalDateTime
 
 @RestController
-class ServerInfoController : ServerInfoIF {
+@RequestMapping("api/v1")
+class ServerInfoController {
 
-    override fun ping(): String {
+    @GetMapping("/ping", produces = [MediaType.TEXT_PLAIN_VALUE])
+    fun ping(): String {
         return "pong (" + LocalDateTime.now() + ")"
     }
 }
