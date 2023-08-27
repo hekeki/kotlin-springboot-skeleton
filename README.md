@@ -17,7 +17,7 @@ Simple Spring Boot application skeleton written in Kotlin
 See [CreateSkeletonData.http](requests%2FCreateSkeletonData.http)
 
 ### Get SkeletonData
-See [CreateSkeletonData.http](requests%2FCreateSkeletonData.http)
+See [GetSkeletonData.http](requests%2FGetSkeletonData.http))
 
 ### Update SkeletonData
 See [UpdateSkeletonData.http](requests%2FUpdateSkeletonData.http)

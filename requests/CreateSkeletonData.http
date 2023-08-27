@@ -1,3 +1,8 @@
 ### Send POST request with json body
-DELETE http://localhost:8280/api/v1/skeletonData/1
+POST http://localhost:8280/api/v1/skeletonData
+Accept: application/json
 Content-Type: application/json
+
+{
+  "description": "SkeletonData description"
+}
