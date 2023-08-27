@@ -10,3 +10,17 @@ Simple Spring Boot application skeleton written in Kotlin
 * [OK] with API Example using Spring WebFlux WebClient
 * (still in progress) with [Thymeleaf](https://www.thymeleaf.org/) based GUI Example 
 * (still in progress) with [Spring Security](https://spring.io/projects/spring-security) Example
+
+## API Endpoints
+
+### Create SkeletonData
+See [CreateSkeletonData.http](requests%2FCreateSkeletonData.http)
+
+### Get SkeletonData
+See [CreateSkeletonData.http](requests%2FCreateSkeletonData.http)
+
+### Update SkeletonData
+See [UpdateSkeletonData.http](requests%2FUpdateSkeletonData.http)
+
+### Delete SkeletonData
+See [DeleteSkeletonData.http](requests%2FDeleteSkeletonData.http)
