@@ -1,4 +1,4 @@
-### PUT request with header
+### UPDATE SkeletonData by ID
 PUT http://localhost:8280/api/v1/skeletonData/1
 Accept: application/json
 Content-Type: application/json

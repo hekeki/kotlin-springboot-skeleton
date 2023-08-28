@@ -1,4 +1,4 @@
-### Send POST request with json body
+### CREATE SkeletonData
 POST http://localhost:8280/api/v1/skeletonData
 Accept: application/json
 Content-Type: application/json
