@@ -8,9 +8,9 @@ buildscript {
 }
 
 plugins {
-    id("org.springframework.boot") version "3.2.1"
+    id("org.springframework.boot") version "3.2.2"
     id("io.spring.dependency-management") version "1.1.4"
-    id("org.owasp.dependencycheck") version "9.0.8"
+    id("org.owasp.dependencycheck") version "9.0.9"
     id("org.jetbrains.kotlin.jvm") version "1.9.22"
     id("org.jetbrains.kotlin.plugin.spring") version "1.9.22"
 }
@@ -62,8 +62,8 @@ subprojects {
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 tasks.bootJar {
