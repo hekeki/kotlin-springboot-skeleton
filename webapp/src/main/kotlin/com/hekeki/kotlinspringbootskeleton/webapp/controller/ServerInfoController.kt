@@ -1,9 +1,10 @@
 package com.hekeki.kotlinspringbootskeleton.webapp.controller
 
+import org.jetbrains.annotations.NotNull
+import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.*
 import java.time.LocalDateTime
 
 @RestController
@@ -11,7 +12,8 @@ import java.time.LocalDateTime
 class ServerInfoController {
 
     @GetMapping("/ping", produces = [MediaType.TEXT_PLAIN_VALUE])
-    fun ping(): String {
-        return "pong (" + LocalDateTime.now() + ")"
+    fun ping(): ResponseEntity<String> {
+        throw IllegalArgumentException("moo")
+        return ResponseEntity.ok("pong (" + LocalDateTime.now() + ")")
     }
 }
