@@ -20,7 +20,7 @@ object WebClientFactory {
             headers.forEach(webClientBuilder::defaultHeader)
         }
         val httpServiceProxyFactory: HttpServiceProxyFactory = HttpServiceProxyFactory
-            .builder(WebClientAdapter.forClient(webClientBuilder.build())).build()
+            .builderFor(WebClientAdapter.create(webClientBuilder.build())).build()
         return httpServiceProxyFactory.createClient(proxyInterface)
     }
 

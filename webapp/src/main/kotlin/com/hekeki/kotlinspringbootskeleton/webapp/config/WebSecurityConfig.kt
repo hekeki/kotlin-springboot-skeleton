@@ -1,25 +1,32 @@
 package com.hekeki.kotlinspringbootskeleton.webapp.config
 
-//import org.springframework.security.config.annotation.web.builders.HttpSecurity
-//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
-//import org.springframework.security.web.SecurityFilterChain
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+import org.springframework.security.config.annotation.web.builders.HttpSecurity
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
+import org.springframework.security.config.annotation.web.invoke
+import org.springframework.security.web.SecurityFilterChain
+import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher
 
-//@Configuration
-//@EnableWebSecurity
+@Configuration
+@EnableWebSecurity
 class WebSecurityConfig {
 
-//    @Bean
-//    @Throws(Exception::class)
-//    fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
+    @Bean
+    @Throws(Exception::class)
+    fun securityFilterChain(http: HttpSecurity, mvc: MvcRequestMatcher.Builder): SecurityFilterChain {
 
-//        http.authorizeHttpRequests { authorize ->
-//                authorize
-//                    .requestMatchers("/css/**", "img/**", "js/**", "/api/v1/**").permitAll()
-//                    .requestMatchers("/actuator").authenticated()
-//                    .anyRequest().permitAll()
-//            }
-//            .httpBasic {}
-//            .csrf {}
-//        return http.cors().and().csrf().disable().build()
-//    }
+        http.invoke {
+            csrf {
+                ignoringRequestMatchers("/api/v1/**")
+            }
+            authorizeHttpRequests {
+                authorize("/actuator", authenticated)
+                authorize("/api/v1/**", permitAll)
+            }
+            httpBasic { }
+        }
+
+        return http.build()
+    }
 }

@@ -13,7 +13,6 @@ class ServerInfoController {
 
     @GetMapping("/ping", produces = [MediaType.TEXT_PLAIN_VALUE])
     fun ping(): ResponseEntity<String> {
-        throw IllegalArgumentException("moo")
         return ResponseEntity.ok("pong (" + LocalDateTime.now() + ")")
     }
 }
