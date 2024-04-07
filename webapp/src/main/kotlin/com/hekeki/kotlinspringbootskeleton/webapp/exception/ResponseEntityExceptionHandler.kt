@@ -16,11 +16,8 @@ class GlobalResponseEntityExceptionHandler : ResponseEntityExceptionHandler() {
     @ExceptionHandler(Exception::class)
     fun unexpectedException(e: Exception, response: HttpServletResponse): ResponseEntity<ErrorMessage> {
         log.error(e.message, e)
-        return ResponseEntity(
-            ErrorMessage(
-                HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                "An error occurred while processing this request."
-            ), HttpStatus.INTERNAL_SERVER_ERROR
+        return ResponseEntity(ErrorMessage(HttpStatus.INTERNAL_SERVER_ERROR.value(),
+            "An error occurred while processing this request."), HttpStatus.INTERNAL_SERVER_ERROR
         )
     }
 }
