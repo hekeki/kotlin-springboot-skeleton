@@ -5,13 +5,15 @@ import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.service.annotation.GetExchange
+import org.springframework.web.service.annotation.HttpExchange
 import java.time.LocalDateTime
 
 @RestController
-@RequestMapping("api/v1")
+@HttpExchange("api/v1")
 class ServerInfoController {
 
-    @GetMapping("/ping", produces = [MediaType.TEXT_PLAIN_VALUE])
+    @GetExchange(value = "/ping", accept = [MediaType.TEXT_PLAIN_VALUE])
     fun ping(): ResponseEntity<String> {
         return ResponseEntity.ok("pong (" + LocalDateTime.now() + ")")
     }
