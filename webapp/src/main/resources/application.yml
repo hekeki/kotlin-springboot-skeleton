@@ -14,7 +14,3 @@ spring:
       cache:
         cachecontrol:
           max-age: 0
-  security:
-    user:
-      name: admin
-      password: change-me

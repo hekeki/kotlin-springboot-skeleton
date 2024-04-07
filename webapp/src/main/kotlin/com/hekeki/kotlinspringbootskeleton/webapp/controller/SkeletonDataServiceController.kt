@@ -25,7 +25,10 @@ class SkeletonDataServiceController {
     }
 
     @PutMapping("{sid}", consumes = [MediaType.APPLICATION_JSON_VALUE], produces = [MediaType.APPLICATION_JSON_VALUE])
-    fun update(@NotNull @PathVariable sid: Int, @NotNull @RequestBody skeletonData: SkeletonData): ResponseEntity<SkeletonData> {
+    fun update(
+        @NotNull @PathVariable sid: Int,
+        @NotNull @RequestBody skeletonData: SkeletonData
+    ): ResponseEntity<SkeletonData> {
         return ResponseEntity.ok(SkeletonData(sid = sid, description = skeletonData.description))
     }
 

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/css/pico.min.css" th:href="@{css/pico.min.css}"/>
+</head>
+<body>
+<main class="container">
+    <form th:action="@{/login}" method="post" style="max-width: 350px; margin: 0 auto;">
+        <div>
+            <p>Login</p>
+            <p>
+                <input type="text" name="username" placeholder="Username" aria-label="Username" required autofocus/>
+            </p>
+            <p>
+                <input type="password" name="password" placeholder="Password" aria-label="Password" required/>
+            </p>
+            <p>
+                <input type="submit" value="Log in"/>
+            </p>
+        </div>
+    </form>
+</main>
+</body>
+</html>

@@ -5,29 +5,58 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.invoke
+import org.springframework.security.core.userdetails.User
+import org.springframework.security.core.userdetails.UserDetails
+import org.springframework.security.core.userdetails.UserDetailsService
+import org.springframework.security.crypto.argon2.Argon2PasswordEncoder
+import org.springframework.security.crypto.password.PasswordEncoder
+import org.springframework.security.provisioning.InMemoryUserDetailsManager
 import org.springframework.security.web.SecurityFilterChain
-import org.springframework.security.web.servlet.util.matcher.MvcRequestMatcher
 
 @Configuration
 @EnableWebSecurity
 class WebSecurityConfig {
 
     @Bean
-    @Throws(Exception::class)
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
 
-        http.invoke {
+        http {
             csrf {
                 ignoringRequestMatchers("/api/v1/**")
             }
             authorizeHttpRequests {
-                authorize("/actuator", authenticated)
                 authorize("/api/v1/**", permitAll)
-                authorize("/**", permitAll)
+                authorize("/css/**", permitAll)
+                authorize("/**", authenticated)
             }
-            httpBasic { }
+            formLogin {
+                loginPage = "/login"
+                permitAll()
+            }
         }
 
         return http.build()
+    }
+
+    @Bean
+    fun inMemoryUserDetailsManager(): UserDetailsService {
+        val user: UserDetails = User
+            .withUsername("user")
+            .password(passwordEncoder().encode("user"))
+            .roles("USER")
+            .build()
+
+        val admin: UserDetails = User
+            .withUsername("admin")
+            .password(passwordEncoder().encode("admin"))
+            .roles("ADMIN")
+            .build()
+
+        return InMemoryUserDetailsManager(user, admin)
+    }
+
+    @Bean
+    fun passwordEncoder(): PasswordEncoder {
+        return Argon2PasswordEncoder.defaultsForSpringSecurity_v5_8()
     }
 }

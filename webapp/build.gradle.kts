@@ -11,4 +11,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-thymeleaf")
     implementation("org.springframework.boot:spring-boot-starter-web")
     compileOnly("org.springframework.boot:spring-boot-configuration-processor")
+
+    // 3rd party
+    implementation("org.bouncycastle:bcprov-jdk18on:1.78")
 }
