@@ -23,6 +23,7 @@ class WebSecurityConfig {
             authorizeHttpRequests {
                 authorize("/actuator", authenticated)
                 authorize("/api/v1/**", permitAll)
+                authorize("/**", permitAll)
             }
             httpBasic { }
         }
