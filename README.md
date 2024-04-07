@@ -4,12 +4,12 @@
 Simple Spring Boot application skeleton written in Kotlin
 
 ## Features
-* [OK] multi module project
-* [OK] completely written in [Kotlin](https://kotlinlang.org/) 
-* [OK] build with [Gradle](https://gradle.org/) using [Gradle Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html)
-* [OK] with API Example using Spring WebFlux WebClient
-* [OK] with [Spring Security](https://spring.io/projects/spring-security) Example
-* [OK] with [Thymeleaf](https://www.thymeleaf.org/) based Login Example
+* multi module project
+* completely written in [Kotlin](https://kotlinlang.org/) 
+* build with [Gradle](https://gradle.org/) using [Gradle Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html)
+* with API Example using Spring WebFlux WebClient
+* with [Spring Security](https://spring.io/projects/spring-security) Example
+* with [Thymeleaf](https://www.thymeleaf.org/) based Login Example
 
 ## API Endpoints
 
