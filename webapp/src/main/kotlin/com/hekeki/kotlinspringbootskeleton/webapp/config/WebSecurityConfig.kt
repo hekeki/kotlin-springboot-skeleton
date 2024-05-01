@@ -33,6 +33,9 @@ class WebSecurityConfig {
                 loginPage = "/login"
                 permitAll()
             }
+            logout {
+                logoutSuccessUrl = "/login"
+            }
         }
 
         return http.build()
