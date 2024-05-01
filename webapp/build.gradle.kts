@@ -13,5 +13,5 @@ dependencies {
     compileOnly("org.springframework.boot:spring-boot-configuration-processor")
 
     // 3rd party
-    implementation("org.bouncycastle:bcprov-jdk18on:1.78")
+    implementation("org.bouncycastle:bcprov-jdk18on:1.78.1")
 }
