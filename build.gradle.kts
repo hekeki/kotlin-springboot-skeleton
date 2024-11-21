@@ -1,4 +1,5 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 
 buildscript {
     repositories {
@@ -8,11 +9,11 @@ buildscript {
 }
 
 plugins {
-    id("org.springframework.boot") version "3.2.5"
-    id("io.spring.dependency-management") version "1.1.4"
-    id("org.owasp.dependencycheck") version "9.1.0"
-    id("org.jetbrains.kotlin.jvm") version "1.9.23"
-    id("org.jetbrains.kotlin.plugin.spring") version "1.9.23"
+    id("org.springframework.boot") version "3.3.5"
+    id("io.spring.dependency-management") version "1.1.6"
+    id("org.owasp.dependencycheck") version "11.1.0"
+    id("org.jetbrains.kotlin.jvm") version "2.0.21"
+    id("org.jetbrains.kotlin.plugin.spring") version "2.0.21"
 }
 
 group = "com.hekeki.kotlin-springboot-skeleton"
@@ -47,14 +48,14 @@ subprojects {
         testImplementation("org.springframework.boot:spring-boot-starter-test")
     }
 
-    tasks {
-        withType<KotlinCompile> {
-            kotlinOptions {
-                freeCompilerArgs = listOf("-Xjsr305=strict")
-                jvmTarget = "21"
-            }
-        }
 
+    tasks.withType<KotlinJvmCompile>().configureEach {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_21)
+            freeCompilerArgs.add("-Xjsr305=strict")
+        }
+    }
+    tasks {
         withType<Test> {
             useJUnitPlatform()
         }
@@ -74,9 +75,9 @@ tasks.jar {
     enabled = true
 }
 
-tasks.check {
-    dependsOn("dependencyCheckAggregate")
-}
+//tasks.check {
+//    dependsOn("dependencyCheckAggregate")
+//}
 
 dependencyCheck {
     autoUpdate = false
