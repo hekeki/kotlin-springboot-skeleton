@@ -9,11 +9,11 @@ buildscript {
 }
 
 plugins {
-    id("org.springframework.boot") version "3.3.5"
-    id("io.spring.dependency-management") version "1.1.6"
-    id("org.owasp.dependencycheck") version "11.1.0"
-    id("org.jetbrains.kotlin.jvm") version "2.0.21"
-    id("org.jetbrains.kotlin.plugin.spring") version "2.0.21"
+    id("org.springframework.boot") version "3.4.5"
+    id("io.spring.dependency-management") version "1.1.7"
+    id("org.owasp.dependencycheck") version "12.1.1"
+    id("org.jetbrains.kotlin.jvm") version "2.1.20"
+    id("org.jetbrains.kotlin.plugin.spring") version "2.1.20"
 }
 
 group = "com.hekeki.kotlin-springboot-skeleton"
